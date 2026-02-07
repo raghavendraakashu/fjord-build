@@ -29,9 +29,16 @@ export function Footer() {
                     <div>
                         <h3 className="text-white font-medium mb-4">Socials</h3>
                         <ul className="space-y-3">
-                            <li><a href="#" className="text-neutral-500 hover:text-white transition-colors duration-300">Twitter / X</a></li>
-                            <li><a href="#" className="text-neutral-500 hover:text-white transition-colors duration-300">LinkedIn</a></li>
-                            <li><a href="#" className="text-neutral-500 hover:text-white transition-colors duration-300">Instagram</a></li>
+                            <li>
+                                <a
+                                    href="https://www.instagram.com/fjord_build/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-neutral-500 hover:text-white transition-colors duration-300 flex items-center gap-2"
+                                >
+                                    Instagram
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

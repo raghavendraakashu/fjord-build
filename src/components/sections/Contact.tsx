@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export function Contact() {
     const [formState, setFormState] = useState({
         name: "",
+        businessName: "",
         email: "",
         projectType: "Website / Landing Page",
         message: "",
@@ -26,12 +27,26 @@ export function Contact() {
             if (!response.ok) throw new Error("Failed to send");
 
             setStatus("success");
-            setFormState({ name: "", email: "", projectType: "Website / Landing Page", message: "" });
+            setFormState({ name: "", businessName: "", email: "", projectType: "Website / Landing Page", message: "" });
         } catch (error) {
             console.error(error);
             setStatus("error");
         }
     };
+
+    useEffect(() => {
+        if (status === "success") {
+            const script = document.createElement("script");
+            script.src = "https://assets.calendly.com/assets/external/widget.js";
+            script.async = true;
+            document.body.appendChild(script);
+            return () => {
+                if (document.body.contains(script)) {
+                    document.body.removeChild(script);
+                }
+            };
+        }
+    }, [status]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormState({ ...formState, [e.target.name]: e.target.value });
@@ -48,24 +63,23 @@ export function Contact() {
                         transition={{ duration: 0.6 }}
                     >
                         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6">
-                            Let's work together
+                            Let's build something that performs.
                         </h2>
                         <p className="text-xl text-neutral-400 mb-12 max-w-md">
-                            Ready to transform your digital presence? Tell us about your project.
+                            Tell us what you're looking to build. We'll handle the&nbsp;rest.
                         </p>
 
                         <div className="space-y-8">
                             <div>
                                 <h3 className="text-white font-medium mb-1">Email</h3>
-                                <a href="mailto:hello@fjord.agency" className="text-neutral-400 hover:text-white transition-colors">
-                                    hello@fjord.agency
+                                <a href="mailto:fjord.build@gmail.com" className="text-neutral-400 hover:text-white transition-colors">
+                                    fjord.build@gmail.com
                                 </a>
                             </div>
                             <div>
-                                <h3 className="text-white font-medium mb-1">Office</h3>
+                                <h3 className="text-white font-medium mb-1">Global</h3>
                                 <p className="text-neutral-400">
-                                    123 Design District<br />
-                                    New York, NY 10013
+                                    Remote-first digital studio · Serving clients worldwide
                                 </p>
                             </div>
                         </div>
@@ -90,27 +104,31 @@ export function Contact() {
                                 </div>
                                 <h3 className="text-2xl font-bold text-white mb-2">Message received</h3>
                                 <p className="text-neutral-400 mb-8">
-                                    Thanks — Akash & Syed will get back to you shortly.
+                                    Thanks — we’ve received your message.
                                 </p>
 
-                                <div className="bg-neutral-950 border border-neutral-800 rounded-xl p-6 mb-8 text-left">
-                                    <h4 className="text-white font-medium mb-1">Want to move faster?</h4>
-                                    <p className="text-sm text-neutral-500 mb-4">
-                                        Book a quick intro call if you'd like to discuss your project immediately.
-                                    </p>
-                                    <a
-                                        href="https://calendly.com/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center justify-center w-full px-4 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
-                                    >
-                                        Book a 15-min intro call
-                                    </a>
+                                <div className="bg-neutral-950 border border-neutral-800 rounded-xl overflow-hidden text-left">
+                                    <div className="p-6 border-b border-neutral-800 bg-neutral-900/50">
+                                        <div className="flex items-center justify-between mb-2">
+                                            <h4 className="text-white font-bold">Project Discovery Call</h4>
+                                            <span className="text-xs font-medium px-2 py-1 bg-neutral-800 text-neutral-300 rounded-full">30 min</span>
+                                        </div>
+                                        <p className="text-sm text-neutral-400">
+                                            Discuss your project, goals, and next&nbsp;steps.
+                                        </p>
+                                    </div>
+                                    <div className="p-4 bg-white md:p-0">
+                                        <div
+                                            className="calendly-inline-widget w-full"
+                                            data-url="https://calendly.com/"
+                                            style={{ height: '600px', minWidth: '320px' }}
+                                        />
+                                    </div>
                                 </div>
 
                                 <button
                                     onClick={() => setStatus("idle")}
-                                    className="text-white border-b border-white pb-1 hover:text-neutral-300 hover:border-neutral-300 transition-colors"
+                                    className="text-white border-b border-white pb-1 hover:text-neutral-300 hover:border-neutral-300 transition-colors text-sm"
                                 >
                                     Send another message
                                 </button>
@@ -131,17 +149,29 @@ export function Contact() {
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-neutral-400 mb-2">Email</label>
+                                        <label htmlFor="businessName" className="block text-sm font-medium text-neutral-400 mb-2">Business / Brand name <span className="text-neutral-600">(Optional)</span></label>
                                         <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            required
-                                            value={formState.email}
+                                            type="text"
+                                            id="businessName"
+                                            name="businessName"
+                                            value={formState.businessName}
                                             onChange={handleChange}
                                             className="w-full bg-black border border-neutral-800 rounded-lg px-4 py-3 text-white placeholder-neutral-600 focus:outline-none focus:border-white transition-colors"
                                         />
                                     </div>
+                                </div>
+
+                                <div>
+                                    <label htmlFor="email" className="block text-sm font-medium text-neutral-400 mb-2">Email</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        required
+                                        value={formState.email}
+                                        onChange={handleChange}
+                                        className="w-full bg-black border border-neutral-800 rounded-lg px-4 py-3 text-white placeholder-neutral-600 focus:outline-none focus:border-white transition-colors"
+                                    />
                                 </div>
 
                                 <div>
@@ -158,7 +188,6 @@ export function Contact() {
                                             <option>Website / Landing Page</option>
                                             <option>Automation / AI System</option>
                                             <option>Ads & Growth</option>
-                                            <option>Not sure yet</option>
                                         </select>
                                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-500">
                                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -186,10 +215,13 @@ export function Contact() {
                                         disabled={status === "loading"}
                                         className="w-full py-4 rounded-lg font-medium text-black bg-white hover:bg-neutral-200 transition-all duration-300 mb-3"
                                     >
-                                        {status === "loading" ? "Processing..." : "Start my project"}
+                                        {status === "loading" ? "Processing..." : "Send & book a call"}
                                     </button>
-                                    <p className="text-center text-xs text-neutral-500">
-                                        We usually reply within 24 hours. No spam.
+                                    <p className="text-center text-xs text-neutral-500 mb-6">
+                                        We usually respond within 24 hours.
+                                    </p>
+                                    <p className="text-center text-sm text-neutral-400 font-medium">
+                                        Working remotely with founders and teams across the globe.
                                     </p>
                                 </div>
 

@@ -4,20 +4,16 @@ import { motion } from "framer-motion";
 
 const services = [
     {
-        title: "Web Development",
-        description: "High-performance, scalable websites built with modern frameworks.",
+        title: "Websites & Landing Pages",
+        description: "High-performance, conversion-focused websites built with modern&nbsp;frameworks.",
     },
     {
-        title: "Automation & Integrations",
-        description: "Smart workflows that save time, reduce manual work, and scale operations.",
+        title: "Automation & AI Systems",
+        description: "Custom workflows and intelligent systems that reduce manual work and scale&nbsp;operations.",
     },
     {
-        title: "Data & Visualization",
-        description: "Clear dashboards and visual systems that turn data into decisions.",
-    },
-    {
-        title: "Performance & SEO",
-        description: "Technical SEO, speed optimization, and structure built for growth.",
+        title: "Ads & Growth Systems",
+        description: "Design and infrastructure built to support performance marketing and&nbsp;growth.",
     },
 ];
 

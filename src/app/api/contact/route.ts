@@ -1,10 +1,12 @@
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { name, email, message, projectType } = body;
+        const { name, businessName, email, message, projectType } = body;
 
         const transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
@@ -23,6 +25,7 @@ export async function POST(request: Request) {
             subject: `New Project Inquiry: ${projectType} - ${name}`,
             text: `
 Name: ${name}
+Business Name: ${businessName || 'N/A'}
 Email: ${email}
 Project Type: ${projectType}
 Message: ${message}
@@ -31,6 +34,7 @@ Message: ${message}
 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
   <h1>New Project Inquiry</h1>
   <p><strong>Name:</strong> ${name}</p>
+  <p><strong>Business Name:</strong> ${businessName || 'N/A'}</p>
   <p><strong>Email:</strong> ${email}</p>
   <p><strong>Project Type:</strong> ${projectType}</p>
   <hr />

@@ -23,7 +23,7 @@ export function Hero() {
                     >
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-8 leading-[1.1]">
                             We build high-performance <br className="hidden md:block" />
-                            websites and <span className="text-neutral-500">intelligent digital systems</span>
+                            websites and <span className="text-neutral-500">intelligent digital&nbsp;systems.</span>
                         </h1>
                     </motion.div>
 
@@ -34,7 +34,7 @@ export function Hero() {
                         className="text-center md:text-left"
                     >
                         <p className="text-base md:text-lg text-neutral-500 mb-12 max-w-xl leading-relaxed font-light mx-auto md:mx-0">
-                            Fjord is a digital studio focused on design, development, automation, and performance for growing brands.
+                            Design, development, automation, and growth systems — built to&nbsp;scale.
                         </p>
                     </motion.div>
 
@@ -57,7 +57,7 @@ export function Hero() {
                             href="#work"
                             className="flex items-center gap-2 text-white text-base font-medium hover:text-neutral-300 transition-colors group"
                         >
-                            View work
+                            View our work
                             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                         </Link>
                     </motion.div>

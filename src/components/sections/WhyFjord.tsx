@@ -4,22 +4,22 @@ import { motion } from "framer-motion";
 
 const reasons = [
     {
-        title: "Performance",
-        description: "We build systems that load instantly and rank higher.",
+        title: "Founder-led collaboration",
+        description: "You work directly with the founders — no middle&nbsp;layers.",
     },
     {
-        title: "Clarity",
-        description: "No jargon. Just clear strategy and execution.",
+        title: "Performance-first approach",
+        description: "Every project is designed with speed, clarity, and conversion in&nbsp;mind.",
     },
     {
-        title: "Execution",
-        description: "We ship on time, every time. No excuses.",
+        title: "Transparent execution",
+        description: "Clear timelines, clear communication, and clear&nbsp;outcomes.",
     },
 ];
 
 export function WhyFjord() {
     return (
-        <section className="py-24 bg-neutral-950 border-t border-white/5">
+        <section className="py-24 md:py-32 bg-neutral-950 border-t border-white/5">
             <div className="container-custom">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -58,9 +58,14 @@ export function WhyFjord() {
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="mt-20 pt-8 border-t border-white/5 flex justify-end"
                 >
-                    <p className="text-neutral-500 font-mono text-xs tracking-wider uppercase">
-                        Built by Akash & Syed
-                    </p>
+                    <div className="text-right">
+                        <p className="text-white font-medium text-sm mb-1">
+                            Akash & Syed
+                        </p>
+                        <p className="text-neutral-500 text-xs uppercase tracking-wider">
+                            Co-Founders, Fjord
+                        </p>
+                    </div>
                 </motion.div>
             </div>
         </section>

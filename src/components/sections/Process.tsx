@@ -6,22 +6,22 @@ const steps = [
     {
         number: "01",
         title: "Discover",
-        description: "We start by understanding your business goals, audience, and technical requirements.",
+        description: "Understanding goals, constraints, and success&nbsp;metrics.",
     },
     {
         number: "02",
         title: "Design",
-        description: "We create minimal, functional designs that align with your brand and user needs.",
+        description: "Wireframes, visual direction, and user&nbsp;experience.",
     },
     {
         number: "03",
         title: "Build",
-        description: "Development with modern tech stacks ensuring speed, security, and scalability.",
+        description: "Development, integrations, and&nbsp;automation.",
     },
     {
         number: "04",
-        title: "Iterate",
-        description: "Continuous improvement based on data and feedback to maximize results.",
+        title: "Launch & Optimize",
+        description: "Testing, deployment, and&nbsp;iteration.",
     },
 ];
 

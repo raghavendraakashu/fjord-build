@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "FJORD | Premium Digital Agency",
   description: "Design, development, and intelligent systems that grow businesses.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
